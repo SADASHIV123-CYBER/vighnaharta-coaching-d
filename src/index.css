@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================================================
+   GLOBAL CUSTOM LAYER – Vighnaharta Coaching Classes
+   ================================================================ */
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { @apply text-ink-800 font-sans bg-white; }
+  ::selection { @apply bg-saffron-200 text-midnight-900; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-4 font-display font-bold text-sm text-white rounded-full
+           bg-gradient-to-r from-saffron-500 to-saffron-600 hover:from-saffron-600 hover:to-saffron-700
+           shadow-[0_4px_24px_rgba(245,132,15,0.4)] hover:shadow-[0_8px_32px_rgba(245,132,15,0.5)]
+           transition-all duration-300 active:scale-[0.97];
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-4 font-display font-bold text-sm text-white rounded-full
+           bg-midnight-900 hover:bg-midnight-800 shadow-elev-2 hover:shadow-elev-3 transition-all duration-300 active:scale-[0.97];
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-4 font-display font-semibold text-sm text-midnight-900
+           rounded-full bg-white border border-ink-200 hover:border-saffron-300 hover:bg-saffron-50
+           shadow-elev-1 hover:shadow-elev-2 transition-all duration-300;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 font-display font-semibold text-sm text-ink-700
+           rounded-full hover:bg-ink-100 transition-all duration-200;
+  }
+  .card {
+    @apply bg-white rounded-3xl border border-ink-100 shadow-elev-1 hover:shadow-elev-3 transition-all duration-400;
+  }
+  .glass {
+    @apply bg-white/70 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)];
+  }
+  .glass-dark {
+    @apply bg-midnight-900/60 backdrop-blur-2xl border border-white/10 shadow-[0_8px_48px_rgba(0,0,0,0.25)];
+  }
+  .input {
+    @apply w-full px-4 py-3.5 rounded-2xl bg-ink-50 border border-ink-200 text-sm
+           focus:bg-white focus:border-saffron-400 focus:ring-4 focus:ring-saffron-100 outline-none transition-all;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-[10px] font-display font-bold uppercase tracking-[0.2em]
+           bg-saffron-50 border-saffron-100 text-saffron-700;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply w-1.5 h-1.5 rounded-full bg-saffron-500;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-saffron-500 via-amber-500 to-saffron-600 bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .shadow-elev-1 { box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06); }
+  .shadow-elev-2 { box-shadow: 0 4px 16px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04); }
+  .shadow-elev-3 { box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04); }
+  .shadow-elev-4 { box-shadow: 0 16px 48px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06); }
+  .shadow-glow-saffron { box-shadow: 0 0 40px rgba(245,132,15,0.5), 0 0 16px rgba(245,132,15,0.3); }
+  .mesh-warm { background: radial-gradient(ellipse at 20% 50%, rgba(252,193,80,0.15) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(245,132,15,0.08) 0%, transparent 50%), radial-gradient(ellipse at 50% 100%, rgba(252,193,80,0.1) 0%, transparent 50%); }
+  .mesh-cool { background: radial-gradient(ellipse at 15% 30%, rgba(50,89,145,0.35) 0%, transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(245,132,15,0.18) 0%, transparent 50%); }
+  .bg-grid { background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px); background-size: 28px 28px; }
+  .bg-grid-dark { background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px); background-size: 28px 28px; }
+  .bg-mandala { background-image: radial-gradient(circle at center, transparent 40%, rgba(245,132,15,0.04) 41%, transparent 42%), radial-gradient(circle at center, transparent 60%, rgba(245,132,15,0.03) 61%, transparent 62%), radial-gradient(circle at center, transparent 80%, rgba(245,132,15,0.02) 81%, transparent 82%); }
+  .bg-dots { background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px); background-size: 20px 20px; }
+  .duration-400 { transition-duration: 400ms; }
+  .perspective { perspective: 1200px; }
+}
+
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+@keyframes pulse-ring { 0% { opacity: 0.7; transform: scale(1); } 100% { opacity: 0; transform: scale(1.8); } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 2s ease-out infinite; }
+.animate-marquee { animation: marquee 30s linear infinite; }
